@@ -37,8 +37,6 @@ class App extends React.Component {
     base.removeBinding(this.ref);
   }
 
-
-
   addFish = fish => {
     // How to update state
     // 1. Take a copy of existing state
@@ -49,6 +47,15 @@ class App extends React.Component {
     this.setState({
       fishes
     })
+  }
+
+  updateFish = (key, updatedFish) => {
+    // 1. Take a copy of the current state
+    const fishes = { ...this.state.fishes };
+    // 2. Update state
+    fishes[key] = updatedFish;
+    // 3. Set the state
+    this.setState({ fishes });
   }
 
   loadSampleFishes = () => {
@@ -76,7 +83,12 @@ class App extends React.Component {
           </ul>
         </div>
         <Order fishes={ this.state.fishes } order={ this.state.order } />
-        <Inventory addFish={ this.addFish } loadSampleFishes={ this.loadSampleFishes } />
+        <Inventory
+          fishes={ this.state.fishes }
+          addFish={ this.addFish }
+          updateFish={ this.updateFish }
+          loadSampleFishes={ this.loadSampleFishes }
+        />
       </div>
     )
   }
