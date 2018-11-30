@@ -1,11 +1,30 @@
 import React, { Fragment } from 'react';
 import { format } from 'util';
+import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
+
+    myInput = React.createRef();
+
+    goToStore = e => {
+        // 1. Stop the form from submitting
+        e.preventDefault();
+        // 2. Get the value from the input
+
+        // 3. Redirect the page
+        
+    }
+
     render() {
         return (
-            <form className="store-selector">
-                <input type="text" required placeholder="Store Name" />
+            <form className="store-selector" onSubmit={ this.goToStore }>
+                <input 
+                    type="text" 
+                    ref={ this.myInput }
+                    required 
+                    placeholder="Store Name" 
+                    defaultValue={ getFunName() } 
+                />
                 <button type="submit">Visit Store</button>
             </form>
         );
