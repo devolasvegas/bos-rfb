@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { format } from 'util';
 import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
@@ -19,7 +18,6 @@ class StorePicker extends React.Component {
         const storeName = this.myInput.value.value;
         // 3. Redirect the page
         this.props.history.push(`/store/${storeName}`);
-        
     }
 
     render() {
